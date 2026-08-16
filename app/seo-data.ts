@@ -39,3 +39,18 @@ export const SEO_SERVICES = [
     description: "Internationally focused career pathway guidance for culinary and hotel management students.",
   },
 ] as const;
+
+export const LEADERSHIP = [
+  {
+    name: "Shahzad",
+    role: "Co-founder & CEO",
+    schemaRole: "Co-founder and Chief Executive Officer",
+    description: "Leads Internway’s strategy, partnerships and long-term vision for international hospitality career pathways.",
+  },
+  {
+    name: "Haleem",
+    role: "Co-founder & COO",
+    schemaRole: "Co-founder and Chief Operating Officer",
+    description: "Oversees day-to-day operations and coordinates the systems that support students through each pathway.",
+  },
+] as const;

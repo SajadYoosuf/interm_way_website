@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { headers } from "next/headers";
-import { SEO_SERVICES } from "./seo-data";
+import { LEADERSHIP, SEO_SERVICES } from "./seo-data";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -87,6 +87,13 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         },
         areaServed: { "@type": "AdministrativeArea", name: "India" },
         knowsAbout: ["International hospitality internships", "Hotel operations", "Culinary careers", "Hospitality career pathways"],
+        founder: LEADERSHIP.map((person) => ({
+          "@type": "Person",
+          name: person.name,
+          jobTitle: person.schemaRole,
+          description: person.description,
+          worksFor: { "@id": organizationId },
+        })),
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Hospitality Career Pathways",

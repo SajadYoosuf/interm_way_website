@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { FAQS } from "./seo-data";
+import { FAQS, LEADERSHIP } from "./seo-data";
 
 const PHONE = "919037364529";
 
@@ -77,6 +77,25 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="leadership-section section" id="leadership" aria-labelledby="leadership-title">
+        <div className="leadership-heading">
+          <p className="eyebrow"><span /> Meet the founders</p>
+          <h2 id="leadership-title">The people guiding <em>Internway forward.</em></h2>
+        </div>
+        <div className="leadership-grid">
+          {LEADERSHIP.map((person) => (
+            <article className="leader-card" key={person.name}>
+              <div className="leader-initial" aria-hidden="true">{person.name.charAt(0)}</div>
+              <div className="leader-content">
+                <span>{person.role}</span>
+                <h3>{person.name}</h3>
+                <p>{person.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="pathways section" id="pathways">
         <div className="section-heading">
           <div><p className="eyebrow"><span /> Find your direction</p><h2>A pathway built around <em>your ambition.</em></h2></div>
@@ -146,7 +165,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-brand"><span className="brand-crop"><img src="/internway-logo.jpg" alt="Internway" /></span><p>Bridging education and employment.</p></div>
-        <div className="footer-links"><a href="#about">About</a><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="https://www.instagram.com/internway_int/" target="_blank" rel="noreferrer">Instagram ↗</a></div>
+        <div className="footer-links"><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="https://www.instagram.com/internway_int/" target="_blank" rel="noreferrer">Instagram ↗</a></div>
         <p className="copyright">© 2026 Internway. All rights reserved.</p>
       </footer>
 
