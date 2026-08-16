@@ -18,12 +18,36 @@ const programs = [
   { number: "03", title: "Career Pathways", copy: "A guided next step for hotel management students ready to go international.", tag: "Career" },
 ];
 
+const stories = [
+  {
+    speaker: "Shahzad · Founder & CEO",
+    title: "Your global hospitality career starts here",
+    copy: "Meet Internway—your gateway to international hospitality internships, education pathways, career development, global jobs and meaningful industry exposure with leading hotels.",
+    note: "Learn. Experience. Grow. Succeed.",
+    embed: "https://www.instagram.com/reel/DZc3ruCKmjy/embed/captioned/",
+  },
+  {
+    speaker: "Haleem · Co-founder & COO",
+    title: "The reality of some internships",
+    copy: "The right internship should build your career, expand your international exposure and help you return with confidence—not leave you overworked or drained. Choose a safe, healthy opportunity that respects your future.",
+    note: "Choose wisely. Your future deserves better.",
+    embed: "https://www.instagram.com/reel/Da51uSvP74k/embed/captioned/",
+  },
+  {
+    speaker: "Internway student story",
+    title: "Success, seen where it happens",
+    copy: "Success is best measured by our students’ achievements. We were proud to visit an Internway student at the five-star hotel where they are building an international hospitality career.",
+    note: "Real experience. Continued growth. Global ambition.",
+    embed: "https://www.instagram.com/reel/DbnnJnTvdK5/embed/captioned/",
+  },
+];
+
 export default function Home() {
   return (
     <main>
       <header className="site-header">
         <a href="#top" className="brand" aria-label="Internway home"><span className="brand-crop"><Image src="/internway-logo.jpg" alt="Internway" width={132} height={132} priority /></span></a>
-        <nav aria-label="Primary navigation"><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></nav>
+        <nav aria-label="Primary navigation"><a href="#pathways">Pathways</a><a href="#stories">Stories</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></nav>
         <a className="header-cta" href="#contact">Get started <ArrowIcon /></a>
       </header>
 
@@ -95,6 +119,34 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="stories-section section" id="stories" aria-labelledby="stories-title">
+        <div className="stories-heading">
+          <div><p className="eyebrow"><span /> Stories from Internway</p><h2 id="stories-title">Guidance, experience and <em>student progress.</em></h2></div>
+          <p>Hear directly from our founders and see how international hospitality pathways take shape in the real world.</p>
+        </div>
+        <div className="stories-grid">
+          {stories.map((story, index) => (
+            <article className="story-card" key={story.embed}>
+              <div className="story-video">
+                <iframe
+                  src={story.embed}
+                  title={`${story.title} — Instagram Reel ${index + 1}`}
+                  loading="lazy"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <div className="story-copy">
+                <span>{story.speaker}</span>
+                <h3>{story.title}</h3>
+                <p>{story.copy}</p>
+                <strong>{story.note}</strong>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="world-section">
         <div className="world-copy">
           <p className="eyebrow light"><span /> Think beyond borders</p><h2>From Calicut<br />to the <em>world.</em></h2>
@@ -142,7 +194,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-brand"><span className="brand-crop"><Image src="/internway-logo.jpg" alt="Internway" width={132} height={132} /></span><p>Bridging education and employment.</p></div>
-        <div className="footer-links"><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="https://www.instagram.com/internway_int/" target="_blank" rel="noreferrer">Instagram ↗</a></div>
+        <div className="footer-links"><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#pathways">Pathways</a><a href="#stories">Stories</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="https://www.instagram.com/internway_int/" target="_blank" rel="noreferrer">Instagram ↗</a></div>
         <p className="copyright">© 2026 Internway. All rights reserved.</p>
       </footer>
 
