@@ -132,10 +132,13 @@ footer { background:#07131f; color:white; padding:42px 20px 95px; display:grid; 
 .fab-whatsapp { background:#25d366; color:white; }
 
 @media (min-width:720px) {
-  .site-header { padding:0 42px; }
-  .site-header nav { display:flex; gap:28px; font-size:11px; color:#c4cbd2; }
-  .site-header nav a:hover { color:white; }
-  .header-cta { display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:800; }
+  .site-header { height:82px; padding:0 42px; }
+  .site-header nav { display:flex; align-items:center; gap:clamp(18px,2vw,38px); font-size:clamp(12px,1vw,15px); font-weight:600; letter-spacing:.01em; color:#c4cbd2; }
+  .site-header nav a { position:relative; display:inline-flex; align-items:center; min-height:44px; padding:0 2px; transition:color .2s ease; }
+  .site-header nav a::after { content:""; position:absolute; left:2px; right:2px; bottom:5px; height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .2s ease; }
+  .site-header nav a:hover,.site-header nav a:focus-visible { color:white; }
+  .site-header nav a:hover::after,.site-header nav a:focus-visible::after { transform:scaleX(1); }
+  .header-cta { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:0 10px; font-size:clamp(12px,.95vw,14px); font-weight:800; }
   .hero { padding:126px 42px 55px; grid-template-columns:minmax(0,1.08fr) minmax(310px,.82fr); }
   .hero-actions { flex-direction:row; align-items:center; }
   .quick-facts { max-width:520px; }
