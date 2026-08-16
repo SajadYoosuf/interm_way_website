@@ -165,8 +165,13 @@ footer { background:#07131f; color:white; padding:42px 20px 95px; display:grid; 
   .faq-list details>p { padding:0 60px 26px; font-size:14px; }
   .lead-section { padding:100px 42px; grid-template-columns:1fr .8fr; align-items:center; }
   .lead-form { padding:30px; }
-  footer { padding:45px 42px; grid-template-columns:1fr auto; align-items:end; }
-  .copyright { grid-column:1/-1; }
+  footer { padding:58px 42px 46px; grid-template-columns:1fr auto; align-items:center; column-gap:48px; row-gap:24px; }
+  .footer-brand { gap:15px; }
+  .footer-brand p { font-size:14px; line-height:1.55; }
+  .footer-links { justify-content:flex-end; gap:clamp(20px,2vw,34px); font-size:clamp(12px,1vw,15px); font-weight:600; }
+  .footer-links a { display:inline-flex; align-items:center; min-height:44px; transition:color .2s ease; }
+  .footer-links a:hover,.footer-links a:focus-visible { color:var(--gold-light); }
+  .copyright { grid-column:1/-1; font-size:12px; line-height:1.5; }
   .floating-actions { right:24px; bottom:24px; }
 }
 
