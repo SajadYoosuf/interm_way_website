@@ -1,6 +1,5 @@
-"use client";
-
-import { FormEvent, useState } from "react";
+import Image from "next/image";
+import { LeadForm } from "./components/lead-form";
 import { FAQS, LEADERSHIP } from "./seo-data";
 
 const PHONE = "919037364529";
@@ -13,8 +12,6 @@ const PhoneIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.1 3.8 9.5 3a1.4 1.4 0 0 1 1.7.8l1.2 3a1.4 1.4 0 0 1-.4 1.6l-1.4 1.2a14 14 0 0 0 3.8 3.8l1.2-1.4a1.4 1.4 0 0 1 1.6-.4l3 1.2a1.4 1.4 0 0 1 .8 1.7l-.8 2.4a3.2 3.2 0 0 1-3.1 2.2C10.4 18.5 5.5 13.6 4.9 6.9a3.2 3.2 0 0 1 2.2-3.1Z" /></svg>
 );
 
-const WhatsAppIcon = () => <span className="whatsapp-glyph" aria-hidden="true" />;
-
 const programs = [
   { number: "01", title: "Hotel Operations", copy: "Build practical confidence across front office, food service and guest experience.", tag: "Hospitality" },
   { number: "02", title: "Culinary Pathways", copy: "Turn classroom foundations into real-world kitchen and service experience.", tag: "Culinary" },
@@ -22,23 +19,10 @@ const programs = [
 ];
 
 export default function Home() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") || "").trim();
-    const course = String(data.get("course") || "").trim();
-    const interest = String(data.get("interest") || "").trim();
-    const message = `Hi Internway, I'm ${name}. I'm studying ${course} and interested in ${interest}. Please help me explore the right international hospitality pathway.`;
-    setSubmitted(true);
-    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
-  }
-
   return (
     <main>
       <header className="site-header">
-        <a href="#top" className="brand" aria-label="Internway home"><span className="brand-crop"><img src="/internway-logo.jpg" alt="Internway" /></span></a>
+        <a href="#top" className="brand" aria-label="Internway home"><span className="brand-crop"><Image src="/internway-logo.jpg" alt="Internway" width={132} height={132} priority /></span></a>
         <nav aria-label="Primary navigation"><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></nav>
         <a className="header-cta" href="#contact">Get started <ArrowIcon /></a>
       </header>
@@ -57,7 +41,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-visual">
-          <div className="hero-image-wrap"><img src="/bridge-careers.jpg" alt="Hospitality students learning culinary skills" /></div>
+          <div className="hero-image-wrap"><Image src="/bridge-careers.jpg" alt="Hospitality students learning culinary skills" fill sizes="(max-width: 719px) 100vw, 42vw" priority /></div>
           <div className="visual-note"><span className="note-dot">✦</span><div><strong>Bridge the gap</strong><small>Education → Employment</small></div></div>
         </div>
       </section>
@@ -117,7 +101,7 @@ export default function Home() {
           <p>International exposure can change how you work, communicate and see your future in hospitality.</p>
           <a className="button button-light" href="#contact">See what’s possible <ArrowIcon /></a>
         </div>
-        <div className="world-art" aria-hidden="true"><img src="/global-pathways.jpg" alt="" /></div>
+        <div className="world-art" aria-hidden="true"><Image src="/global-pathways.jpg" alt="" fill sizes="(max-width: 719px) 100vw, 58vw" /></div>
       </section>
 
       <section className="process section" id="process">
@@ -153,25 +137,18 @@ export default function Home() {
             <div><span className="pin">⌖</span><span><small>Visit us</small>HiLITE Business Park, Calicut, Kerala</span></div>
           </div>
         </div>
-        <form className="lead-form" onSubmit={handleSubmit}>
-          <div className="form-header"><span>✦</span><p>Let’s find your pathway</p></div>
-          <label>Full name<input name="name" type="text" placeholder="Your name" required /></label>
-          <label>What are you studying?<input name="course" type="text" placeholder="e.g. Hotel Management" required /></label>
-          <label>I’m interested in<select name="interest" defaultValue="" required><option value="" disabled>Select a pathway</option><option>International Hospitality Internship</option><option>Culinary Career Pathway</option><option>Hotel Operations Pathway</option><option>Not sure — I need guidance</option></select></label>
-          <button className="button button-gold" type="submit">Start on WhatsApp <WhatsAppIcon /></button>
-          <small className="form-note">{submitted ? "WhatsApp opened — send the prepared message to connect." : "No spam. Just a helpful conversation about your next step."}</small>
-        </form>
+        <LeadForm />
       </section>
 
       <footer>
-        <div className="footer-brand"><span className="brand-crop"><img src="/internway-logo.jpg" alt="Internway" /></span><p>Bridging education and employment.</p></div>
+        <div className="footer-brand"><span className="brand-crop"><Image src="/internway-logo.jpg" alt="Internway" width={132} height={132} /></span><p>Bridging education and employment.</p></div>
         <div className="footer-links"><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="https://www.instagram.com/internway_int/" target="_blank" rel="noreferrer">Instagram ↗</a></div>
         <p className="copyright">© 2026 Internway. All rights reserved.</p>
       </footer>
 
       <div className="floating-actions" aria-label="Quick contact">
         <a className="fab fab-call" href="tel:+919037364529" aria-label="Call Internway"><PhoneIcon /></a>
-        <a className="fab fab-whatsapp" href={`https://wa.me/${PHONE}?text=${encodeURIComponent("Hi Internway, I'd like to know more about your international hospitality pathways.")}`} target="_blank" rel="noreferrer" aria-label="Message Internway on WhatsApp"><WhatsAppIcon /></a>
+        <a className="fab fab-whatsapp" href={`https://wa.me/${PHONE}?text=${encodeURIComponent("Hi Internway, I'd like to know more about your international hospitality pathways.")}`} target="_blank" rel="noreferrer" aria-label="Message Internway on WhatsApp"><span className="whatsapp-glyph" aria-hidden="true" /></a>
       </div>
     </main>
   );

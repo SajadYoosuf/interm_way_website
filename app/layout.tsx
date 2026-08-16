@@ -1,69 +1,56 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import { headers } from "next/headers";
 import { LEADERSHIP, SEO_SERVICES } from "./seo-data";
+import { SITE_URL } from "./site-config";
 import "./globals.css";
 
-const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const title = "International Hospitality Internships | Internway Kerala";
+const description = "Explore international hospitality internships and career pathways for hotel management students with Internway in Calicut, Kerala. Start on WhatsApp.";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("host") || "localhost:3000";
-  const protocol = host.startsWith("localhost") || host.startsWith("127.0.0.1") ? "http" : "https";
-  const origin = `${protocol}://${host}`;
-  const image = `${protocol}://${host}/og.png`;
-  const title = "International Hospitality Internships | Internway Kerala";
-  const description = "Explore international hospitality internships and career pathways for hotel management students with Internway in Calicut, Kerala. Start on WhatsApp.";
-
-  return {
-    title,
-    description,
-    applicationName: "Internway",
-    authors: [{ name: "Internway" }],
-    creator: "Internway",
-    publisher: "Internway",
-    category: "Hospitality career development",
-    keywords: [
-      "international hospitality internships",
-      "hotel management internship abroad",
-      "hospitality internships for students",
-      "hospitality career pathway programs",
-      "culinary internship pathway",
-      "hotel management internship Kerala",
-      "hospitality internships Calicut",
-    ],
-    alternates: { canonical: origin },
-    robots: {
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title,
+  description,
+  applicationName: "Internway",
+  authors: [{ name: "Internway" }],
+  creator: "Internway",
+  publisher: "Internway",
+  category: "Hospitality career development",
+  keywords: [
+    "international hospitality internships",
+    "hotel management internship abroad",
+    "hospitality internships for students",
+    "hospitality career pathway programs",
+    "culinary internship pathway",
+    "hotel management internship Kerala",
+    "hospitality internships Calicut",
+  ],
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
       index: true,
       follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
-      },
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
-    icons: { icon: "/internway-logo.jpg", apple: "/internway-logo.jpg" },
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      locale: "en_IN",
-      url: origin,
-      siteName: "Internway",
-      images: [{ url: image, width: 1200, height: 630, alt: "Internway — Your career. Now global." }],
-    },
-    twitter: { card: "summary_large_image", title, description, images: [image] },
-  };
-}
+  },
+  icons: { icon: "/internway-logo.jpg", apple: "/internway-logo.jpg" },
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    locale: "en_IN",
+    url: "/",
+    siteName: "Internway",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Internway — Your career. Now global." }],
+  },
+  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
+};
 
-export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("host") || "localhost:3000";
-  const protocol = host.startsWith("localhost") || host.startsWith("127.0.0.1") ? "http" : "https";
-  const origin = `${protocol}://${host}`;
-  const organizationId = `${origin}/#organization`;
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const organizationId = `${SITE_URL}/#organization`;
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -72,9 +59,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         "@id": organizationId,
         name: "Internway",
         alternateName: "Internway International",
-        url: origin,
-        logo: `${origin}/internway-logo.jpg`,
-        image: `${origin}/og.png`,
+        url: SITE_URL,
+        logo: `${SITE_URL}/internway-logo.jpg`,
+        image: `${SITE_URL}/og.png`,
         description: "International hospitality internships and career pathway programs for hotel management students.",
         telephone: "+91-90373-64529",
         sameAs: ["https://www.instagram.com/internway_int/"],
@@ -111,8 +98,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       },
       {
         "@type": "WebSite",
-        "@id": `${origin}/#website`,
-        url: origin,
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
         name: "Internway",
         description: "International hospitality internships and career pathways for hotel management students.",
         inLanguage: "en-IN",
@@ -123,7 +110,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 
   return (
     <html lang="en-IN">
-      <body className={geist.variable}>
+      <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
         {children}
       </body>
