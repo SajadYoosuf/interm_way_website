@@ -24,21 +24,21 @@ const stories = [
     title: "Your global hospitality career starts here",
     copy: "Meet Internway—your gateway to international hospitality internships, education pathways, career development, global jobs and meaningful industry exposure with leading hotels.",
     note: "Learn. Experience. Grow. Succeed.",
-    embed: "https://www.instagram.com/reel/DZc3ruCKmjy/embed/captioned/",
+    embed: "https://www.instagram.com/reel/DZc3ruCKmjy/embed/",
   },
   {
     speaker: "Haleem · Co-founder & COO",
     title: "The reality of some internships",
     copy: "The right internship should build your career, expand your international exposure and help you return with confidence—not leave you overworked or drained. Choose a safe, healthy opportunity that respects your future.",
     note: "Choose wisely. Your future deserves better.",
-    embed: "https://www.instagram.com/reel/Da51uSvP74k/embed/captioned/",
+    embed: "https://www.instagram.com/reel/Da51uSvP74k/embed/",
   },
   {
     speaker: "Internway student story",
     title: "Success, seen where it happens",
     copy: "Success is best measured by our students’ achievements. We were proud to visit an Internway student at the five-star hotel where they are building an international hospitality career.",
     note: "Real experience. Continued growth. Global ambition.",
-    embed: "https://www.instagram.com/reel/DbnnJnTvdK5/embed/captioned/",
+    embed: "https://www.instagram.com/reel/DbnnJnTvdK5/embed/",
   },
 ];
 
