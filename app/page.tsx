@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { FAQS } from "./seo-data";
 
 const PHONE = "919037364529";
 
@@ -43,15 +44,15 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a href="#top" className="brand" aria-label="Internway home"><span className="brand-crop"><img src="/internway-logo.jpg" alt="Internway" /></span></a>
-        <nav aria-label="Primary navigation"><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="#contact">Contact</a></nav>
+        <nav aria-label="Primary navigation"><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></nav>
         <a className="header-cta" href="#contact">Get started <ArrowIcon /></a>
       </header>
 
       <section className="hero" id="top">
         <div className="hero-copy">
           <div className="eyebrow"><span /> International hospitality internships</div>
-          <h1>Your career.<br /><em>Now global.</em></h1>
-          <p className="hero-intro">Internway helps hotel management students bridge the gap between education and employment through international hospitality pathways.</p>
+          <h1><span className="hero-seo-title">International hospitality internships.</span><br /><em>Your career, now global.</em></h1>
+          <p className="hero-intro">Internway helps hotel management students explore international hospitality internships and career pathways that bridge education and employment.</p>
           <div className="hero-actions">
             <a className="button button-gold" href="#contact">Explore your pathway <ArrowIcon /></a>
             <a className="text-link" href="tel:+919037364529"><PhoneIcon /> Talk to an advisor</a>
@@ -63,6 +64,21 @@ export default function Home() {
         <div className="hero-visual">
           <div className="hero-image-wrap"><img src="/bridge-careers.jpg" alt="Hospitality students learning culinary skills" /></div>
           <div className="visual-note"><span className="note-dot">✦</span><div><strong>Bridge the gap</strong><small>Education → Employment</small></div></div>
+        </div>
+      </section>
+
+      <section className="answer-section section" id="about" aria-labelledby="about-title">
+        <div className="answer-intro">
+          <p className="eyebrow"><span /> What is Internway?</p>
+          <h2 id="about-title">A clearer route from hotel school to <em>international experience.</em></h2>
+        </div>
+        <div className="answer-copy">
+          <p><strong>Internway is a Calicut-based hospitality career pathway company for hotel management students.</strong> We help students explore international hospitality internships, hotel operations pathways and culinary career directions through a direct, guidance-led conversation.</p>
+          <div className="answer-facts" aria-label="Internway at a glance">
+            <div><span>Based in</span><strong>Calicut, Kerala</strong></div>
+            <div><span>Built for</span><strong>Hospitality students</strong></div>
+            <div><span>Focused on</span><strong>International pathways</strong></div>
+          </div>
         </div>
       </section>
 
@@ -99,6 +115,21 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="faq-section section" id="faq" aria-labelledby="faq-title">
+        <div className="faq-heading">
+          <div><p className="eyebrow"><span /> Student questions</p><h2 id="faq-title">International hospitality internships, <em>clearly answered.</em></h2></div>
+          <p>Quick, direct answers about Internway, eligibility, pathways and how to begin.</p>
+        </div>
+        <div className="faq-list">
+          {FAQS.map((item, index) => (
+            <details key={item.question} open={index === 0}>
+              <summary><span>{String(index + 1).padStart(2, "0")}</span>{item.question}<b aria-hidden="true">+</b></summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <section className="lead-section" id="contact">
         <div className="lead-copy">
           <p className="eyebrow light"><span /> Your first step starts here</p><h2>Ready to make hospitality your <em>global career?</em></h2>
@@ -120,7 +151,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-brand"><span className="brand-crop"><img src="/internway-logo.jpg" alt="Internway" /></span><p>Bridging education and employment.</p></div>
-        <div className="footer-links"><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="https://www.instagram.com/internway_int/" target="_blank" rel="noreferrer">Instagram ↗</a></div>
+        <div className="footer-links"><a href="#about">About</a><a href="#pathways">Pathways</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="https://www.instagram.com/internway_int/" target="_blank" rel="noreferrer">Instagram ↗</a></div>
         <p className="copyright">© 2026 Internway. All rights reserved.</p>
       </footer>
 
