@@ -106,7 +106,7 @@ h1 em,h2 em { color:var(--gold); font-weight:400; }
 .lead-form label { display:grid; gap:7px; font-size:10px; text-transform:uppercase; letter-spacing:.1em; font-weight:800; }
 .lead-form input,.lead-form select { width:100%; padding:13px 12px; border:1px solid #d9d5cc; border-radius:4px; background:white; color:var(--ink); outline:none; font-size:13px; text-transform:none; letter-spacing:0; }
 .lead-form input:focus,.lead-form select:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(211,164,88,.15); }
-.lead-form .button svg { stroke-width:1.5; }
+.whatsapp-glyph { display:inline-block; width:1.25em; height:1.25em; flex:0 0 auto; background:currentColor; -webkit-mask:url('/whatsapp.svg') center/contain no-repeat; mask:url('/whatsapp.svg') center/contain no-repeat; }
 .form-note { text-align:center; color:#7a7f84; line-height:1.5; font-size:9px; }
 
 footer { background:#07131f; color:white; padding:42px 20px 95px; display:grid; gap:30px; }
@@ -117,6 +117,7 @@ footer { background:#07131f; color:white; padding:42px 20px 95px; display:grid; 
 .floating-actions { position:fixed; right:16px; bottom:16px; z-index:50; display:flex; flex-direction:column; gap:10px; }
 .fab { width:50px; height:50px; border-radius:50%; display:grid; place-items:center; box-shadow:0 10px 30px rgba(0,0,0,.25); }
 .fab svg { width:23px; height:23px; }
+.fab .whatsapp-glyph { width:25px; height:25px; }
 .fab-call { background:var(--paper); color:var(--navy); }
 .fab-whatsapp { background:#25d366; color:white; }
 

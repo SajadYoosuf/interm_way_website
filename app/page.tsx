@@ -13,12 +13,7 @@ const PhoneIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.1 3.8 9.5 3a1.4 1.4 0 0 1 1.7.8l1.2 3a1.4 1.4 0 0 1-.4 1.6l-1.4 1.2a14 14 0 0 0 3.8 3.8l1.2-1.4a1.4 1.4 0 0 1 1.6-.4l3 1.2a1.4 1.4 0 0 1 .8 1.7l-.8 2.4a3.2 3.2 0 0 1-3.1 2.2C10.4 18.5 5.5 13.6 4.9 6.9a3.2 3.2 0 0 1 2.2-3.1Z" /></svg>
 );
 
-const WhatsAppIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M20.4 11.8a8.3 8.3 0 0 1-12.3 7.3l-4.5 1.2 1.2-4.4A8.3 8.3 0 1 1 20.4 11.8Z" />
-    <path d="M8.4 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.8 2c.1.3.1.5-.1.7l-.6.8c-.2.2-.3.4-.1.7.5 1 1.2 1.8 2.1 2.4.8.5 1.4.8 1.7.9.3.1.5 0 .7-.2l.9-1.1c.2-.3.5-.3.7-.2l2 .9c.3.1.4.2.5.4.1.2.1 1-.3 1.9-.4.8-1.6 1.5-2.6 1.6-.7.1-1.7.2-4.7-1.1-3.9-1.7-6.4-5.8-6.6-6.1-.2-.3-1.6-2.1-1.5-4 .1-1.8 1-2.7 1.4-3.1Z" />
-  </svg>
-);
+const WhatsAppIcon = () => <span className="whatsapp-glyph" aria-hidden="true" />;
 
 const programs = [
   { number: "01", title: "Hotel Operations", copy: "Build practical confidence across front office, food service and guest experience.", tag: "Hospitality" },
