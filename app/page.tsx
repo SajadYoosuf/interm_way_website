@@ -50,7 +50,7 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <div className="eyebrow"><span /> International hospitality internships</div>
+          <div className="eyebrow"><span /> For hotel management students</div>
           <h1><span className="hero-seo-title">International hospitality internships.</span><br /><em>Your career, now global.</em></h1>
           <p className="hero-intro">Internway helps hotel management students explore international hospitality internships and career pathways that bridge education and employment.</p>
           <div className="hero-actions">
