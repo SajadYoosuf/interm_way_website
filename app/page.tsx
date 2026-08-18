@@ -47,13 +47,6 @@ const stories = [
     note: "Choose wisely. Your future deserves better.",
     embed: "https://www.instagram.com/reel/Da51uSvP74k/embed/",
   },
-  {
-    speaker: "Internway student story",
-    title: "Success, seen where it happens",
-    copy: "Success is best measured by our students’ achievements. We were proud to visit an Internway student at the five-star hotel where they are building an international hospitality career.",
-    note: "Real experience. Continued growth. Global ambition.",
-    embed: "https://www.instagram.com/reel/DbnnJnTvdK5/embed/",
-  },
 ];
 
 export default function Home() {
