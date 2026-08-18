@@ -14,9 +14,13 @@ test("keeps the landing page server-rendered with focused SEO content", async ()
   assert.match(page, /International hospitality internships\./);
   assert.match(page, /<h1>/);
   assert.match(page, /<LeadForm \/>/);
+  assert.match(page, /Vietnam · Hong Kong · Denmark/);
+  assert.match(page, /internwayint@gmail\.com/);
+  assert.match(page, /internway-student-journey\.mp4/);
   assert.match(layout, /metadataBase/);
   assert.match(layout, /application\/ld\+json/);
   assert.match(layout, /ProfessionalService/);
+  assert.match(layout, /internwayint@gmail\.com/);
 });
 
 test("provides first-party crawl controls and social metadata", async () => {

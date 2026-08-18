@@ -4,7 +4,7 @@ import { SITE_URL } from "./site-config";
 import "./globals.css";
 
 const title = "International Hospitality Internships | Internway Kerala";
-const description = "Explore international hospitality internships and career pathways for hotel management students with Internway in Calicut, Kerala. Start on WhatsApp.";
+const description = "Explore hotel management internships in Vietnam, Hong Kong and Denmark with Internway. Enquire about housekeeping, front office, F&B service, culinary and production pathways.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -23,6 +23,12 @@ export const metadata: Metadata = {
     "culinary internship pathway",
     "hotel management internship Kerala",
     "hospitality internships Calicut",
+    "hotel management internship Vietnam",
+    "hospitality internship Hong Kong",
+    "hotel internship Denmark",
+    "housekeeping internship abroad",
+    "front office internship abroad",
+    "food and beverage service internship",
   ],
   alternates: { canonical: "/" },
   robots: {
@@ -64,6 +70,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         image: `${SITE_URL}/og.png`,
         description: "International hospitality internships and career pathway programs for hotel management students.",
         telephone: "+91-90373-64529",
+        email: "internwayint@gmail.com",
         sameAs: ["https://www.instagram.com/internway_int/"],
         address: {
           "@type": "PostalAddress",
@@ -72,13 +79,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           addressRegion: "Kerala",
           addressCountry: "IN",
         },
-        areaServed: { "@type": "AdministrativeArea", name: "India" },
-        knowsAbout: ["International hospitality internships", "Hotel operations", "Culinary careers", "Hospitality career pathways"],
+        areaServed: [
+          { "@type": "Country", name: "India" },
+          { "@type": "Country", name: "Vietnam" },
+          { "@type": "Country", name: "Hong Kong" },
+          { "@type": "Country", name: "Denmark" },
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+91-90373-64529",
+          email: "internwayint@gmail.com",
+          contactType: "student enquiries",
+          availableLanguage: ["English", "Malayalam"],
+        },
+        knowsAbout: ["International hospitality internships", "Housekeeping", "Front office", "Food and beverage service", "Culinary", "Hotel production"],
         founder: LEADERSHIP.map((person) => ({
           "@type": "Person",
           name: person.name,
           jobTitle: person.schemaRole,
-          description: person.description,
           worksFor: { "@id": organizationId },
         })),
         hasOfferCatalog: {
